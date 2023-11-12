@@ -33,6 +33,8 @@
         <img src="IMG_7203.jpeg" alt="フリースクールの画像">
         <p>フリースクールの特長やメリットをここに説明します。</p>
 　　　　 <div class="text-overlay">子供に教えるよりも子供が自分でできると</div>
+      <div class="text-overlay2">子供に教えるよりも子供が自分でできると</div>
+       
        </div>
       <script>
         // テキストを画像上で横に流れるアニメーション
@@ -44,6 +46,22 @@
                 // テキストを右端から左端へ流すアニメーション
                 $('.text-overlay').css('left', containerWidth);
                 $('.text-overlay').animate({ left: -textWidth }, 10000, 'linear', function() {
+                    // アニメーションが終わったら再度流れるようにリセット
+                    flowText();
+                });
+            }
+
+            flowText(); // 初回実行
+        });
+             // テキストを画像上で縦に流すアニメーション
+        $(document).ready(function() {
+            function flowText() {
+                var containerHeight = $('.image-container').height();
+                var textHeight = $('.text-overlay').height();
+
+                // テキストを上から下へ流すアニメーション
+                $('.text-overlay2').css('top', -textHeight);
+                $('.text-overlay2').animate({ top: containerHeight }, 10000, 'linear', function() {
                     // アニメーションが終わったら再度流れるようにリセット
                     flowText();
                 });
