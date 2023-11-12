@@ -42,27 +42,15 @@
             function flowText() {
                 var containerWidth = $('.image-container').width();
                 var textWidth = $('.text-overlay').width();
-
+　　　　　　　　　　var containerHeight = $('.image-container').height();
+                var textHeight = $('.text-overlay2').height();
                 // テキストを右端から左端へ流すアニメーション
                 $('.text-overlay').css('left', containerWidth);
-                $('.text-overlay').animate({ left: -textWidth }, 10000, 'linear', function() {
-                    // アニメーションが終わったら再度流れるようにリセット
-                    flowText();
-                });
-            }
-
-            flowText(); // 初回実行
-        });
-             // テキストを画像上で縦に流すアニメーション
-        $(document).ready(function() {
-            function flowText() {
-                var containerHeight = $('.image-container').height();
-                var textHeight = $('.text-overlay2').height();
-
-                // テキストを上から下へ流すアニメーション
+                $('.text-overlay').animate({ left: -textWidth }, 10000, 'linear', 
+                  // テキストを上から下へ流すアニメーション
                 $('.text-overlay2').css('top', -textHeight);
                 $('.text-overlay2').animate({ top: containerHeight }, 10000, 'linear', function() {
-                    // アニメーションが終わったら再度流れるようにリセット
+                    // アニメーションが終わったら再度流れるようにリセット                              // アニメーションが終わったら再度流れるようにリセット
                     flowText();
                 });
             }
