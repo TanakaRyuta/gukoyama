@@ -34,6 +34,25 @@
         <img src="gukoyama.png" alt="フリースクールの画像">
         <p>フリースクールの特長やメリットをここに説明します。</p>
 　　　　 <div class="text-overlay">Your Text</div></section>
+       <script>
+        // テキストを画像上で横に流れるアニメーション
+        $(document).ready(function() {
+            function flowText() {
+                var containerWidth = $('.image-container').width();
+                var textWidth = $('.text-overlay').width();
+
+                // テキストを右端から左端へ流すアニメーション
+                $('.text-overlay').css('left', containerWidth);
+                $('.text-overlay').animate({ left: -textWidth }, 10000, 'linear', function() {
+                    // アニメーションが終わったら再度流れるようにリセット
+                    flowText();
+                });
+            }
+
+            flowText(); // 初回実行
+        });
+    </script>
+    
     <section>
         <h2>よくある質問（FAQ）</h2>
         <ul class="faq-list">
@@ -69,23 +88,5 @@
     <section>
         <a href="申し込みページのURL" class="cta-button">今すぐ申し込む</a>
     </section>
-    <script>
-        // テキストを画像上で横に流れるアニメーション
-        $(document).ready(function() {
-            function flowText() {
-                var containerWidth = $('.image-container').width();
-                var textWidth = $('.text-overlay').width();
-
-                // テキストを右端から左端へ流すアニメーション
-                $('.text-overlay').css('left', containerWidth);
-                $('.text-overlay').animate({ left: -textWidth }, 10000, 'linear', function() {
-                    // アニメーションが終わったら再度流れるようにリセット
-                    flowText();
-                });
-            }
-
-            flowText(); // 初回実行
-        });
-    </script>
 </body>
 </html>
